@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Button Double Action</title>
+		<link
+			rel="stylesheet"
+			href="https://site-assets.fontawesome.com/releases/v6.6.0/css/all.css"
+			type="text/css"
+			media="all" />
+		<style type="text/css" media="all">
+			:root {
+				--padding-xxs: calc(1rem * 0.25);
+				--padding-xs: calc(1rem * 0.5);
+				--padding-s: calc(1rem * 0.75);
+				--padding-m: calc(1rem * 1);
+				--padding-l: calc(1rem * 1.25);
+				--padding-xl: calc(1rem * 1.5);
+				--padding-xxl: calc(1rem * 1.75);
+
+				--margin-xxs: calc(1rem * 0.25);
+				--margin-xs: calc(1rem * 0.5);
+				--margin-s: calc(1rem * 0.75);
+				--margin-m: calc(1rem * 1);
+				--margin-l: calc(1rem * 1.25);
+				--margin-xl: calc(1rem * 1.5);
+				--margin-xxl: calc(1rem * 1.75);
+
+				--gap-xxs: calc(1rem * 0.25);
+				--gap-xs: calc(1rem * 0.5);
+				--gap-s: calc(1rem * 0.75);
+				--gap-m: calc(1rem * 1);
+				--gap-l: calc(1rem * 1.25);
+				--gap-xl: calc(1rem * 1.5);
+				--gap-xxl: calc(1rem * 1.75);
+
+				--border-radius-xxs: calc(1rem * 0.4);
+				--border-radius-xs: calc(1rem * 0.5);
+				--border-radius-s: calc(1rem * 0.6);
+				--border-radius-m: calc(1rem * 0.75);
+				--border-radius-l: calc(1rem * 0.9);
+				--border-radius-xl: calc(1rem * 1.05);
+				--border-radius-xxl: calc(1rem * 1.2);
+				--border-radius-o: 50%;
+
+				--duration-transition-xxs: 0.05s;
+				--duration-transition-xs: 0.2s;
+				--duration-transition-s: 0.35s;
+				--duration-transition-m: 0.5s;
+				--duration-transition-l: 0.65s;
+				--duration-transition-xl: 0.8s;
+				--duration-transition-xxl: 0.95s;
+
+				--duration-animation-xxs: 0.05s;
+				--duration-animation-xs: 0.2s;
+				--duration-animation-s: 0.35s;
+				--duration-animation-m: 0.5s;
+				--duration-animation-l: 0.65s;
+				--duration-animation-xl: 0.8s;
+				--duration-animation-xxl: 0.95s;
+			}
+
+			.idz-btn-double-act {
+				--_bg: #00e506;
+
+				display: flex;
+				justify-content: center;
+				width: 175px;
+				font-size: 1rem;
+			}
+
+			.idz-btn-double-act > .idz-act-btn {
+				--_min-width: 1em;
+
+				border: none;
+				background: transparent;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				flex-grow: 1;
+				transition:
+					flex-grow var(--duration-transition-xxl),
+					padding var(--duration-transition-xxl),
+					border-radius var(--duration-transition-xxl),
+					justify-content var(--duration-transition-xxl);
+				padding: var(--padding-xs) var(--padding-s);
+
+				/* coloring */
+				background: var(--_bg);
+			}
+			.idz-btn-double-act > .idz-act-btn:first-child {
+				border-radius: var(--border-radius-l) 0 0 var(--border-radius-l);
+				justify-content: end;
+				padding-inline-end: 15%;
+			}
+			.idz-btn-double-act > .idz-act-btn:last-child {
+				border-radius: 0 var(--border-radius-l) var(--border-radius-l) 0;
+				justify-content: start;
+				padding-inline-start: 15%;
+			}
+			.idz-btn-double-act > .idz-act-btn:hover {
+				flex-grow: 1;
+			}
+			.idz-btn-double-act:has(.idz-act-btn:hover)
+				> *:not(.idz-act-btn:hover) {
+				flex-grow: 0;
+			}
+			.idz-btn-double-act:has(.idz-act-btn:hover) > .idz-act-btn {
+				border-radius: var(--border-radius-l);
+				padding: var(--padding-xs) var(--padding-s);
+			}
+
+			.idz-btn-double-act > .idz-act-btn > .idz-wrapper {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				gap: var(--gap-xxs);
+				width: var(--_min-width);
+				overflow: hidden;
+				transition: flex-grow var(--duration-transition-xxl);
+			}
+			.idz-btn-double-act > .idz-act-btn:hover > .idz-wrapper {
+				flex-grow: 1;
+			}
+
+			.idz-btn-double-act > .idz-act-btn > .idz-wrapper > .idz-icon {
+				position: sticky;
+				left: 0;
+				min-width: var(--_min-width);
+				max-width: var(--_min-width);
+				text-align: center;
+				font-size: 1em;
+
+				/* coloring */
+				background: var(--_bg);
+			}
+
+			.idz-btn-double-act > .idz-act-btn > .idz-wrapper > .idz-text-name {
+				opacity: 0;
+				font-size: 0.925em;
+				transition: opacity var(--duration-transition-xxl);
+			}
+			.idz-btn-double-act > .idz-act-btn:hover > .idz-wrapper > .idz-text-name {
+			    opacity: 1;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="idz-btn-double-act">
+			<button class="idz-act-btn">
+				<span class="idz-wrapper">
+					<span class="idz-icon fa-regular fa-money-bill-wave"></span>
+					<span class="idz-text-name">buy</span>
+				</span>
+			</button>
+			<button class="idz-act-btn">
+				<span class="idz-wrapper">
+					<span class="idz-icon fa-regular fa-cart-shopping"> </span>
+					<span class="idz-text-name">shopper</span>
+				</span>
+			</button>
+		</div>
+	</body>
+</html>
